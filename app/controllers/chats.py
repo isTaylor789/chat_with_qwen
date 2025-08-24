@@ -15,7 +15,7 @@ class ChatController:
         try:
             chat_service = ChatService(db)
             chat = chat_service.create_chat(request)
-            return ResponseMapper.success(201, "Chat created successfully", chat)
+            return ResponseMapper.success("Chat created successfully", chat)
         except Exception as e:
             raise HTTPException(
                 status_code=500, 
@@ -33,7 +33,7 @@ class ChatController:
                     status_code=404,
                     detail=ErrorResponseMapper.error(404, "Chat not found")
                 )
-            return ResponseMapper.success(200, "Chat retrieved successfully", chat)
+            return ResponseMapper.success("Chat retrieved successfully", chat)
         except HTTPException:
             raise
         except Exception as e:
@@ -53,7 +53,7 @@ class ChatController:
                     status_code=404,
                     detail=ErrorResponseMapper.error(404, "Chat not found")
                 )
-            return ResponseMapper.success(200, "Chat updated successfully", chat)
+            return ResponseMapper.success("Chat updated successfully", chat)
         except HTTPException:
             raise
         except Exception as e:
@@ -73,7 +73,7 @@ class ChatController:
                     status_code=404,
                     detail=ErrorResponseMapper.error(404, "Chat not found")
                 )
-            return ResponseMapper.success(200, "Chat deleted successfully", {"deleted": True})
+            return ResponseMapper.success("Chat deleted successfully", {"deleted": True})
         except HTTPException:
             raise
         except Exception as e:
@@ -88,7 +88,7 @@ class ChatController:
         try:
             chat_service = ChatService(db)
             chats, pagination = chat_service.get_all_chats_paginated(page)
-            return ResponseMapper.success(200, "Chats retrieved successfully", chats, pagination)
+            return ResponseMapper.success("Chats retrieved successfully", chats, pagination)
         except Exception as e:
             raise HTTPException(
                 status_code=500,

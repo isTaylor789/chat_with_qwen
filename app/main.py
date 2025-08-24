@@ -1,13 +1,15 @@
 from fastapi import FastAPI
 from app.conf.db import engine
 from app.routes.chats import router as chats_router
+from app.routes.messenger import router as messenger_router
 from sqlalchemy import text
 
 app = FastAPI(title="Chat with Qwen")
 
 # Incluir rutas
 app.include_router(chats_router)
-
+app.include_router(messenger_router)
+\
 @app.get("/")
 def root():
     return {"message": "Hola, FastAPI está vivo 🚀"}

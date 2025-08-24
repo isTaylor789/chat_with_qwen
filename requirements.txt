@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+sqlalchemy
+pymssql
+pyodbc
+python-dotenv
+pydantic
+httpx

@@ -22,10 +22,10 @@ class PaginationMeta:
 
 class ResponseMapper:
     @staticmethod
-    def success(status_code: int, message: str, data: Any, pagination: Optional[PaginationMeta] = None) -> Dict:
+    def success(message: str, data: Any, pagination: Optional[PaginationMeta] = None) -> Dict:
         """Crear una respuesta exitosa con formato estándar"""
         response = {
-            "status_code": status_code,
+            "status": "success",
             "message": message,
             "data": data,
             "timestamp": datetime.now().isoformat()
